@@ -1,0 +1,56 @@
+{
+    "accounts": {
+        "0": {
+            "email": "teja@gmail.com",
+            "username": "teja",
+            "password": "1234",
+            "designation": "Admin"
+        },
+        "1": {
+            "email": "gad@gmail.com",
+            "username": "GAD",
+            "password": "2345",
+            "designation": "Manager"
+        },
+        "2": {
+            "email": "mona@gmail.com",
+            "username": "monea",
+            "password": "1478",
+            "designation": "User"
+        },
+        "3": {
+            "email": "mobile@gmail.com",
+            "username": "mob",
+            "password": "2485",
+            "designation": "User"
+        },
+        "4": {
+            "email": "test@gmail.com",
+            "username": "test1",
+            "password": "9478",
+            "designation": "Manager"
+        },
+        "5": {
+            "email": "test1@gmail.com",
+            "username": "test2",
+            "password": "1452",
+            "designation": "User"
+        },
+        "6": {
+            "email": "Steve@gmail.com",
+            "username": "Roger",
+            "password": "rom",
+            "designation": "User"
+        }
+    },
+    "prices": {
+        "Coimbatore Turf": "5000",
+        "Nellore Turf": "3000",
+        "Vijayawada Turf": "15000",
+        "Mangolia": "2500",
+        "Manila": "2500",
+        "Russia": "7L",
+        "USA": "28$"
+    },
+    "users": ["teja", "GAD", "monea", "mob", "test1", "test2", "Roger"]
+}
