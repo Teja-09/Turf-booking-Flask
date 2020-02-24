@@ -1,51 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
-    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/main.css') }}">
+
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 
     <title>Document</title>
     <style>
-        .table
-        {
+        .table {
             width: 50%;
             margin-left: 25%;
         }
     </style>
 </head>
+
 <body>
-    <nav class="navbar" role="navigation" aria-label="main navigation">      
+    <nav class="navbar" role="navigation" aria-label="main navigation">
         <div id="navbarBasicExample" class="navbar-menu">
-          <div class="navbar-end">
-            <div class="navbar-item">
-              <div class="buttons">
-                <a class="button is-primary nav-but" href="{{ url_for('logout') }}">
-                  <strong>Logout</strong>
-                </a>
-              </div>
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a class="button is-primary nav-but" href="{{ url_for('logout') }}">
+                            <strong>Logout</strong>
+                        </a>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </nav>
-         <div class="table-container">
-             <br>
-            <h1 class="title has-text-centered is-size-1">Welcome {{ name }}</h1>
-            <table class="table is-bordered is-striped is-narrow is-hoverable ">
-              <!-- Your table content -->
-              <tr>
+    </nav>
+    <div class="table-container">
+        <br>
+        <h1 class="title has-text-centered is-size-1">Welcome {{ name }}</h1>
+        <table class="table is-bordered is-striped is-narrow is-hoverable ">
+            <!-- Your table content -->
+            <tr>
+                <th>Options</th>
                 <th>Turf</th>
                 <th>Cost (Rs.)</th>
             </tr>
-              {% for key, value in result.items() %}
-              <tr>
-                 <td> {{ key }} </th>
-                 <td> {{ value }} </td>
-              </tr>
-           {% endfor %}
-            </table>
-          </div>
+            {% for key, value in result.items() %}
+            <tr>
+                
+                <td> {{ key }} </th>
+                <td> {{ value }} </td>
+                <td>
+                <form action="{{ url_for('add_cart') }}" method="POST">
+
+                        <input class="is-hidden-desktop-only" type="text" value="{{ key }}" name="turfval">
+                        <button class="button is-link is-small">Add to cart</button>
+                </form>    
+            </td>
+
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
 </body>
+
 </html>

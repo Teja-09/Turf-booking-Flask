@@ -6,6 +6,8 @@ import json
 app = Flask(__name__)
 
 account_database = json.load(open("databases/accounts.json", "r"))
+global user
+
 
 @app.route('/')
 def home():
@@ -50,6 +52,7 @@ def register():
 # Login auth
 def login():
     if request.method == 'POST':
+        global user
         uname =  request.form['uname']
         passw = request.form['password']  
 
@@ -57,8 +60,11 @@ def login():
             uid = str(account_database['users'].index(uname))
             if passw == account_database['accounts'][uid]['password']:
                 if account_database['accounts'][uid]['designation'] == 'User' or account_database['accounts'][uid]['designation'] == 'Manager':
+                    user = uname
+                    print(user)
                     return render_template('user.html', result = account_database['prices'], name = uname)
                 else:
+                    user = uname
                     return render_template('admin.html', result = account_database['prices'], name= uname)
 
         
@@ -80,6 +86,20 @@ def addTurf():
         return render_template('admin.html', result = account_database['prices'])
 
   
+@app.route('/add_cart', methods=['POST', 'GET'])
+def add_cart():
+    if request.method == 'POST':
+        global user
+        print(user)
+        cart_value = request.form['turfval']
+        if account_database['cart'].get(user) == None:
+            account_database['cart'][user] = []
+        account_database['cart'][user].append(cart_value) 
+        json.dump(account_database, open("databases/accounts.json", "w"))
+        return(user)
+
+
+
 @app.route("/logout")
 def logout():
     session['logged_in'] = False

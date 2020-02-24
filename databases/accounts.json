@@ -50,7 +50,12 @@
         "Mangolia": "2500",
         "Manila": "2500",
         "Russia": "7L",
-        "USA": "28$"
+        "USA": "28$",
+        "Aus": "25$"
     },
-    "users": ["teja", "GAD", "monea", "mob", "test1", "test2", "Roger"]
+    "users": ["teja", "GAD", "monea", "mob", "test1", "test2", "Roger"],
+    "cart": {
+        "monea": ["Coimbatore Turf", "Mangolia"],
+        "mob": ["Coimbatore Turf", "Aus"]
+    }
 }
